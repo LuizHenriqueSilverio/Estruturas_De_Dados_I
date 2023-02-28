@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #define MAX 10
 
-typedef int tdado;
+typedef struct {
+	char[100] descricao;
+	char[40] data; 
+}tdado;
 
 typedef struct {
 	tdado pilha[MAX];
