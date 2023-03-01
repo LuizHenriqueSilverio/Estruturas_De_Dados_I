@@ -2,25 +2,13 @@
 #include <stdlib.h>
 #include "bibliotecaPilha.h"
 
-void converteBinario(int dec) {
+void converteDecimal(int dec, int base) {
 	tPilha p;
 	inicializa(&p);
 	
 	while(dec > 0) {
-		push(&p, (dec % 2));
-		dec = dec / 2;
-	}
-	
-	mostraPilha(p);
-}
-
-void converteOctal(int dec) {
-	tPilha p;
-	inicializa(&p);
-	
-	while(dec > 0) {
-		push(&p, (dec % 8));
-		dec = dec / 8;
+		push(&p, (dec % base));
+		dec = dec / base;
 	}
 	
 	mostraPilha(p);
@@ -49,7 +37,7 @@ void main() {
 				printf("Insira o numero para conversao: ");
 				scanf("%d", &decimal);
 				printf("Numero convertido: ");
-				converteBinario(decimal);
+				converteDecimal(decimal, 2);
 				getch();
 				system("cls");
 				break;
@@ -57,7 +45,7 @@ void main() {
 				printf("Insira o numero para conversao: ");
 				scanf("%d", &decimal);
 				printf("Numero convertido: ");
-				converteOctal(decimal);
+				converteDecimal(decimal, 8);
 				getch();
 				system("cls");
 				break;
