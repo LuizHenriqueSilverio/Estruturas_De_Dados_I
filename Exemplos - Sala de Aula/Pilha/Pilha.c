@@ -58,7 +58,7 @@ void main() {
 				printf("Saindo...\n");
 				break;
 			default:
-				printf("Opção invalida!!!");
+				printf("Opcao invalida!!!");
 				break;
 		}
 		getch();

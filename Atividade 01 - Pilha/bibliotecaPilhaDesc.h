@@ -3,8 +3,8 @@
 #define MAX 10
 
 typedef struct {
-	char[100] descricao;
-	char[40] data; 
+	char descricao[100];
+	char data[40]; 
 }tdado;
 
 typedef struct {
