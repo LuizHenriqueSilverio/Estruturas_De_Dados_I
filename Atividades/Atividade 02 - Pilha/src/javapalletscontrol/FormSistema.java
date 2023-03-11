@@ -193,28 +193,41 @@ public class FormSistema extends javax.swing.JFrame {
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         Produto p;
+        boolean existe = false;
         while(!minhaPilha.isEmpty()){
           p = minhaPilha.peek();
           if(p.getDescricao().equals(txtProduto.getText())){
               p = minhaPilha.pop();
+              existe = true;
               JOptionPane.showMessageDialog(null, "Encontrado");
               if(Integer.parseInt(txtQtd.getText()) >= p.getQuantidade()) {
                   JOptionPane.showMessageDialog(null, "Produto removido.");
               }else {
+                  Produto aux = p;
+                  aux.setQuantidade(aux.getQuantidade() - Integer.parseInt(txtQtd.getText()));
+                  minhaPilha.push(aux);
+                  mostraPilha(minhaPilha, listPilha);
                   
               }
-              //se for < = decrementa do p.getQtd a quantidade da caixa de texto
-              // e devolve - push(p)
               mostraPilha(minhaPilha, listPilha);
-              //break;
-          }// fim if equals
+              break;
+          }
           else{
               pilhaAuxiliar.push(minhaPilha.pop()); 
               mostraPilha(minhaPilha, listPilha);
               mostraPilha(pilhaAuxiliar, listAux);
-          }// fim else remove 
-        }// fim while isEmpty    
+          } 
+        }    
         
+        if(!existe) {
+            JOptionPane.showMessageDialog(null, "Produto nao encontrado!");
+        }
+        
+        while(!pilhaAuxiliar.isEmpty()) {
+            minhaPilha.push(pilhaAuxiliar.pop());
+            mostraPilha(minhaPilha, listPilha);
+            mostraPilha(pilhaAuxiliar, listAux);
+        }
         // devolve da aux para principal
     }//GEN-LAST:event_btnRemoveActionPerformed
 
