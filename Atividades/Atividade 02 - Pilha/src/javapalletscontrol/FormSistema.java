@@ -203,11 +203,8 @@ public class FormSistema extends javax.swing.JFrame {
               if(Integer.parseInt(txtQtd.getText()) >= p.getQuantidade()) {
                   JOptionPane.showMessageDialog(null, "Produto removido.");
               }else {
-                  Produto aux = p;
-                  aux.setQuantidade(aux.getQuantidade() - Integer.parseInt(txtQtd.getText()));
-                  minhaPilha.push(aux);
-                  mostraPilha(minhaPilha, listPilha);
-                  
+                  p.setQuantidade(p.getQuantidade() - Integer.parseInt(txtQtd.getText()));
+                  minhaPilha.push(p);
               }
               mostraPilha(minhaPilha, listPilha);
               break;
