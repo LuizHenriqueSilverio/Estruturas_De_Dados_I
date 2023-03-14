@@ -229,6 +229,8 @@ public class FormSistema extends javax.swing.JFrame {
         
         minhaPilha.push(meuProduto);
         mostraPilha(minhaPilha, listPilha);
+        txtProduto.setText("");
+        txtQtd.setText("");
         salvar();
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -269,6 +271,8 @@ public class FormSistema extends javax.swing.JFrame {
         // devolve da aux para principal
         
         salvar();
+        txtProduto.setText("");
+        txtQtd.setText("");
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     /**
