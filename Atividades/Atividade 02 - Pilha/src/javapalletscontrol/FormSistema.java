@@ -1,6 +1,11 @@
 
 package javapalletscontrol;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -11,6 +16,8 @@ public class FormSistema extends javax.swing.JFrame {
     
     public FormSistema() {
         initComponents();
+        carregar();
+        mostraPilha(minhaPilha, listPilha);
     }
 
 
@@ -181,6 +188,39 @@ public class FormSistema extends javax.swing.JFrame {
             meuList.append(p + "\n");
         }
      }// fim funcao
+     
+    public void salvar(){
+        String nomeArquivo = "produtos.txt";
+        try(FileWriter grava = new FileWriter(nomeArquivo)) {
+            for(Produto produto:minhaPilha) {
+                grava.write(produto.getDescricao()+ "," +produto.getQuantidade() + "\n");
+            }
+            JOptionPane.showMessageDialog(null ,"Dados salvos com sucesso.");
+        }catch(IOException e) {
+            JOptionPane.showMessageDialog(null, "Não foi possível salvar os dados!");
+        }
+    }
+    
+    public void carregar() {
+        String nomeArquivo = "produtos.txt";
+        try(Scanner leitor = new Scanner(new File(nomeArquivo), "UTF-8")) {
+            while(leitor.hasNextLine()) {
+                String linha = leitor.nextLine();
+                String[] partes = linha.split(",");
+                if(partes.length == 2) {
+                    String descricao = partes[0];
+                    int qtd = Integer.parseInt(partes[1]);
+                    Produto p = new Produto();
+                    p.setDescricao(descricao);
+                    p.setQuantidade(qtd);
+                    minhaPilha.push(p);
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Dados carregados com sucesso!");
+        }catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "Arquivo não encontrado!");
+        }
+    }
     
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         Produto meuProduto = new Produto();
@@ -189,6 +229,7 @@ public class FormSistema extends javax.swing.JFrame {
         
         minhaPilha.push(meuProduto);
         mostraPilha(minhaPilha, listPilha);
+        salvar();
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
@@ -226,6 +267,8 @@ public class FormSistema extends javax.swing.JFrame {
             mostraPilha(pilhaAuxiliar, listAux);
         }
         // devolve da aux para principal
+        
+        salvar();
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     /**
