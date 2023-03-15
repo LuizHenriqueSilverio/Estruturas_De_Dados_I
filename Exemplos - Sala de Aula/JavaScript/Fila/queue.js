@@ -16,4 +16,12 @@ class Fila {
         let valor = this.itens.shift();
         return valor;
     }
+
+    isEmpty() {
+        return this.itens.length === 0;
+    }
+
+    toString() {
+        this.itens.toString();
+    }
 }
