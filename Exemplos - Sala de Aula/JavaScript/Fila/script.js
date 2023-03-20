@@ -21,6 +21,14 @@ function removerFila() {
     }
 }
 
+function primeiroFila() {
+    if(minhaFila.isEmpty()) {
+        alert("A fila está vazia!!!");
+    }else {
+        alert("O primeiro elemento é: " + minhaFila.first());
+    }
+}
+
 function mostrarFila() {
     const filaElemento = document.getElementById("listFila");
     filaElemento.textContent = minhaFila.toString();
