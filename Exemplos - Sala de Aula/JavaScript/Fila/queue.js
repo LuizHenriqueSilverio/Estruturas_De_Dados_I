@@ -22,6 +22,6 @@ class Fila {
     }
 
     toString() {
-        this.itens.toString();
+        return this.itens.toString();
     }
 }
