@@ -19,8 +19,6 @@ function removerFila() {
         alert("Valor removido: " + retorno);
         mostrarFila();
     }
-
-
 }
 
 function mostrarFila() {
