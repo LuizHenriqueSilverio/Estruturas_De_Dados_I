@@ -29,6 +29,14 @@ function primeiroFila() {
     }
 }
 
+function ultimoFila() {
+    if(minhaFila.isEmpty()) {
+        alert("A fila está vazia!!!");
+    }else {
+        alert("O ultimo elemento é: " + minhaFila.last());
+    }
+}
+
 function mostrarFila() {
     const filaElemento = document.getElementById("listFila");
     filaElemento.textContent = minhaFila.toString();
