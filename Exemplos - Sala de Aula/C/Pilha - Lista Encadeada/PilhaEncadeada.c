@@ -103,12 +103,17 @@ void main() {
 					printf("Pilha vazia\n");
 				}
 				break;
+			case 0:
+				printf("Saindo...");
+				getch();
+				break;
 			default:
-				
-										
+				printf("Opcao invalida!!!");
+				break;					
 		}// fim switch
+		
 	    getch();// pausa
 		system("cls");// limpa tela	
-	}while(op != 0);
-	return 0;                                
+		
+	} while(op != 0);                         
 }
