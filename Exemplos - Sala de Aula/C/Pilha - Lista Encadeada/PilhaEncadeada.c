@@ -52,7 +52,7 @@ int isEmpty(tPilha p) {
 
 void mostraPilha(tPilha p) {
 	while(p.topo != NULL) {
-		printf("[%d,%d] | ", p.topo->dado.x, p.topo->dado.y);
+		printf("(%x) [%d,%d] -> %x ", p.topo, p.topo->dado.x, p.topo->dado.y, p.topo->prox);
 		p.topo = p.topo->prox; //passa para o próximo
 	}
 	printf("\n");
@@ -80,11 +80,13 @@ void main() {
 	int op;
 	do{
 		printf("Endereco do Topo:[%x]\n",p1.topo);
+		printf("\n");
 		mostraPilha(p1);
+		printf("\n");
 		op = menu();
 		switch(op){
 			case 1: 
-				printf("Dado para pilha:");
+				printf("Dado para pilha(x,y):");
 				scanf("%d",&dado.x);
 				scanf("%d", &dado.y);
 				if(push(&p1,dado) == 1){
@@ -105,7 +107,6 @@ void main() {
 				break;
 			case 0:
 				printf("Saindo...");
-				getch();
 				break;
 			default:
 				printf("Opcao invalida!!!");
