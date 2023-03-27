@@ -107,7 +107,8 @@ void main() {
 					printf("Pilha vazia\n");
 				}
 				break;
-			case 5:
+			case 4:
+				printf("Matando o Computador...\n");
 				srand(time(NULL));
 				while(1) {
 					dado.x = rand()%10;
@@ -118,7 +119,6 @@ void main() {
 			case 0:
 				printf("Saindo...");
 				break;
-			case 5
 			default:
 				printf("Opcao invalida!!!");
 				break;					
