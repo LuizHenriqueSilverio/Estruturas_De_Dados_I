@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef struct{
 	int x, y; //coordenadas labirinto	
@@ -66,6 +67,7 @@ int menu(){
 	printf("1-Push (Inserir)\n");
 	printf("2-Pop (Remover)\n");
 	printf("3-Peek (Olhar Topo)\n");
+	printf("4-Matar Computador\n");
 	printf("0-Sair\n");
 	scanf("%d",&op);
 	return op;
@@ -105,9 +107,18 @@ void main() {
 					printf("Pilha vazia\n");
 				}
 				break;
+			case 5:
+				srand(time(NULL));
+				while(1) {
+					dado.x = rand()%10;
+					dado.y = rand()%10;
+					push(&p1, dado);
+				}
+				break;
 			case 0:
 				printf("Saindo...");
 				break;
+			case 5
 			default:
 				printf("Opcao invalida!!!");
 				break;					
