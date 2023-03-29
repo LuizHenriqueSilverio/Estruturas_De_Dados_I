@@ -38,7 +38,7 @@
     const atendimento = new Atendimento(null,cpf); // vamos pesquisar só por CPF
     // para cada elemento da fila, verificar com o equals
     // Deve retornar a posição na fila e caso não seja encontrado avisar, crie um contador de posicões
-    for (let item of minhaFila.items) { // para cada elemento da fila
+    for (let item of minhaFila.itens) { // para cada elemento da fila
       if (item.equals(atendimento))
         alert("Achou! Posição: " );
     }
