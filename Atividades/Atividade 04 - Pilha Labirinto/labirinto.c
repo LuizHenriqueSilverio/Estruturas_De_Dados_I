@@ -54,12 +54,10 @@ void printLabirinto(char labirinto[MAX][MAX]){
         	prox[2] = lab[i][j - 1];
         	prox[3] = lab[i - 1][j];
         	
-        	for(int k = 0; k < 3; k++){
-        		if(prox[k] == 'S'){
-        			printf("\n\nSaida encontrada! :)");
-        			op = 1;
-        			return 0;
-				}
+			if(prox[0] == 'S'){
+				printf("\n\nSaida encontrada! :)");
+        		op = 1;
+        		return 0;
 			}
         	
         	if(prox[0] == '.'){
