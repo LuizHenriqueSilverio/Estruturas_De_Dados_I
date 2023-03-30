@@ -93,16 +93,7 @@ void printLabirinto(char labirinto[MAX][MAX]){
 				printf("\n\nImpossivel encontrar a saida! :(");
 				op = 1;
 				return 1;
-			}
-			
-        	for(int k = 0; k < 3; k++){
-        		if(prox[k] == 'S'){
-        			printf("\n\nSaida encontrada! :)");
-        			op = 1;
-        			return 0;
-				}
 			}			
-
 		Sleep(250); 
 		system("cls");
 		printLabirinto(lab);
