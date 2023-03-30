@@ -41,44 +41,74 @@ void printLabirinto(char labirinto[MAX][MAX]){
         inicializa(&p1);
         int op = 0;
         lab[i][j] = 1; //marcando os lugares visitados
+        char prox[4];
+        
         while(op == 0) {
-        	lab[i][j] = 1;
         	
-        	if(lab[i][j + 1] == '.'){
+        	if(lab[i][j] == '.' && lab[i][j] != 'S'){
+        		lab[i][j] = 1;
+        	}
+        	
+        	prox[0] = lab[i][j + 1];
+        	prox[1] = lab[i + 1][j];
+        	prox[2] = lab[i][j - 1];
+        	prox[3] = lab[i - 1][j];
+        	
+        	for(int k = 0; k < 3; k++){
+        		if(prox[k] == 'S'){
+        			printf("\n\nSaida encontrada! :)");
+        			op = 1;
+        			return 0;
+				}
+			}
+        	
+        	if(prox[0] == '.'){
         		atual.x = i;
         		atual.y = j;
         		push(&p1, atual);
         		j++;
-			} else if (lab[i + 1][j] == '.') {
-        		atual.x = i;
-        		atual.y = j;
-        		push(&p1, atual);			
-				i++;
-			} else if(lab[i][j - 1] == '.') {
+			}
+        	else if(prox[1] == '.'){
         		atual.x = i;
         		atual.y = j;
         		push(&p1, atual);
-				j--;
-			} else if(lab[i - 1][j] == '.') {
+        		i++;
+			}
+			else if(prox[2] == '.'){
         		atual.x = i;
         		atual.y = j;
         		push(&p1, atual);
-				i--;				
-			} else if(!isEmpty(p1)) {
+        		j--;
+			}
+			else if(prox[3] == '.'){
+        		atual.x = i;
+        		atual.y = j;
+        		push(&p1, atual);
+        		i--;
+			}
+			else if(!isEmpty(p1)) {
 				atual = pop(&p1);
 				i = atual.x;
 				j = atual.y;
-				lab[i][j] = 2; //marcando os lugares com backtrack	
-			} else{
-				printLabirinto(lab);
-				printf("Impossivel encontrar a saida! :(");
+				lab[i][j] = 2;
+			} else {
+				printf("\n\nImpossivel encontrar a saida! :(");
 				op = 1;
 				return 1;
 			}
+			
+        	for(int k = 0; k < 3; k++){
+        		if(prox[k] == 'S'){
+        			printf("\n\nSaida encontrada! :)");
+        			op = 1;
+        			return 0;
+				}
+			}			
+
 		Sleep(250); 
 		system("cls");
 		printLabirinto(lab);
-		printf("%d | %d", i, j);
+		printf("\n\n%d | %d", i, j);
 		}
         return 1;
  }// fim funcao
@@ -94,4 +124,4 @@ int main(){
     buscaSaida(meuLabirinto,x,y);
     getch();
     return 0;
-    }
+}
