@@ -7,9 +7,10 @@
     const novoCpf = document.getElementById("txtNovoCpf");
 
     // Verificar se tem algo digitado e mostrar mensagem se necessário
-
-
-
+    if(novoNome.value == "" || novoCpf.value == ""){
+        alert("Preencha todos os campos!");
+        return;
+    }
     //set atributos do atendimento no objeto a partir dos inputs e funções
     // adicionar na fila e mostrar na tela
 
@@ -22,13 +23,21 @@
        alert("A fila está cheia!");
     }else {
        alert("Dados inseridos com sucesso!");
+
        mostrarFila();
     }
  }
 //--------------------------------------------------------------------------------------------
  // Função para remover o primeiro elemento da fila
  function realizarAtendimento() {
-    // verificar se não está vazia antes de atender
+    // verificar se não está vazia antes de 
+    if(!minhaFila.isEmpty()) {
+        const atendimentoAtual = minhaFila.dequeue();
+        mostrarMensagemRemocao(atendimentoAtual);
+        mostrarFila();
+    }else {
+        alert("A fila está vazia!");
+    }
     // mostrar dados da pessoa atendida utilizando a funcao mostrarMensagemRemocao
 
  }
@@ -46,8 +55,9 @@
 }
 //--------------------------------------------------------------------------------------------
 function mostrarMensagemRemocao(pessoaAtendida) {
+    horaAtendimento = horaAtendimento - pessoaAtendida.hora;
     const lblMensagemRemocao = document.getElementById("lblMensagemRemocao");
-    lblMensagemRemocao.innerHTML ="Próximo a ser atendido(a): "+ pessoaAtendida.nome;
+    lblMensagemRemocao.innerHTML = "Próximo a ser atendido(a): " + pessoaAtendida.nome + ", chegou às " + pessoaAtendida.hora + " está sendo atendido às " + obterHoraAtual() + ".";
     lblMensagemRemocao.style.display = "block";
 }
 //--------------------------------------------------------------------------------------------
