@@ -1,5 +1,5 @@
  class Atendimento{
- constructor() {
+    constructor() {
       this._nome = "";
       this._cpf = "";
       this._data = "";
@@ -47,6 +47,6 @@
 
     toString() {
         return `Nome: ${this._nome} - CPF: ${this._cpf} - Data: ${this._data} - Hora: ${this._hora}`;
-      }
+    }
 }
   

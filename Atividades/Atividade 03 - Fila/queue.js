@@ -5,7 +5,7 @@
     }
 //---------------------------------------------
     enqueue(elemento){
-       if(this.itens.length === this.maximo)
+       if(this.itens.length === this.maximo) 
            return false;   
        this.itens.push(elemento);// insere no final
        return true;    
@@ -17,7 +17,6 @@
     }
 
     isEmpty(){
-
       return this.itens.length === 0;
     }
 

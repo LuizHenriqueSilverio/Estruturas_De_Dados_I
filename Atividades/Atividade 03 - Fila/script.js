@@ -23,7 +23,8 @@
        alert("A fila está cheia!");
     }else {
        alert("Dados inseridos com sucesso!");
-
+       novoNome.value = "";
+       novoCpf.value = "";
        mostrarFila();
     }
  }
@@ -43,21 +44,31 @@
  }
  //--------------------------------------------------------------------------------
  function buscarCpf() {
+    let pos = 0;
+    let existe = false;
     const cpf = document.getElementById("txtNovoCpf").value.trim(); // o trim retira os espaços em branco
-    const atendimento = new Atendimento(null,cpf); // vamos pesquisar só por CPF
+    const atendimento = new Atendimento(); // vamos pesquisar só por CPF
+    atendimento.cpf = cpf;
     // para cada elemento da fila, verificar com o equals
     // Deve retornar a posição na fila e caso não seja encontrado avisar, crie um contador de posicões
     for (let item of minhaFila.itens) { // para cada elemento da fila
-      if (item.equals(atendimento))
-        alert("Achou! Posição: " );
+        if (item.equals(atendimento)){
+            alert("Achou! Posição: " + (pos + 1));
+            existe = true;
+        }else {
+            pos++;
+        }
+    }
+
+    if(!existe) {
+        alert("Atendimento não encontrado! :(");
     }
    // se nao encontrar mostre mensagem
 }
 //--------------------------------------------------------------------------------------------
 function mostrarMensagemRemocao(pessoaAtendida) {
-    horaAtendimento = horaAtendimento - pessoaAtendida.hora;
     const lblMensagemRemocao = document.getElementById("lblMensagemRemocao");
-    lblMensagemRemocao.innerHTML = "Próximo a ser atendido(a): " + pessoaAtendida.nome + ", chegou às " + pessoaAtendida.hora + " está sendo atendido às " + obterHoraAtual() + ".";
+    lblMensagemRemocao.innerHTML = "Próximo a ser atendido(a): " + pessoaAtendida.nome + ", chegou às " + pessoaAtendida.hora + " está sendo atendido às " + obterHoraAtual() + "." ;
     lblMensagemRemocao.style.display = "block";
 }
 //--------------------------------------------------------------------------------------------
