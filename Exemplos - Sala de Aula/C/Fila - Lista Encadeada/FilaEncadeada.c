@@ -37,6 +37,7 @@ int enqueue(tfila *f, tdado x) {
 		f->fim->prox = novo; //encadeando o novo nó
 	}
 	f->fim = novo;
+	f->tamanho++;
 }
 
 //---------------------------
@@ -88,7 +89,7 @@ int main(){
 					fflush(stdin);
 					gets(x.processo);
 					scanf("%d",&x.tempo);
-					// inserir
+					enqueue(&f1, x);// inserir
 			break;
 			case 2: if(!isEmpty(f1)) {
 				      // ?
