@@ -27,7 +27,7 @@ void inicializa(tfila *f){
 
 //--------------------------
 
-int enqueue(tfila *f, tdado x){
+int enqueue(tfila *f, tdado x) {
  	tno *novo = malloc(sizeof(tno));
  	novo->dado = x;
  	novo->prox = NULL;
@@ -53,8 +53,12 @@ int isEmpty(tfila f){
 
 //--------------------------
 
-void mostra(tfila f){
-
+void mostra(tfila f) {
+	while(f.ini != NULL) {
+		printf("%s: %d |->", f.ini->dado.processo, f.ini->dado.tempo);
+		f.ini = f.ini->prox; //deslocando
+	}
+	printf("\n");
 }
 
 //----------------------------
