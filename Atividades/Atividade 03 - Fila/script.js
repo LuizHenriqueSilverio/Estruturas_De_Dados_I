@@ -68,7 +68,7 @@
 //--------------------------------------------------------------------------------------------
 function mostrarMensagemRemocao(pessoaAtendida) {
     const lblMensagemRemocao = document.getElementById("lblMensagemRemocao");
-    lblMensagemRemocao.innerHTML = "Próximo a ser atendido(a): " + pessoaAtendida.nome + ", chegou às " + pessoaAtendida.hora + " está sendo atendido às " + obterHoraAtual() + "." ;
+    lblMensagemRemocao.innerHTML = "Próximo a ser atendido(a): " + pessoaAtendida.nome + ", chegou às " + pessoaAtendida.hora + " está sendo atendido às " + obterHoraAtual() + ". Tempo de espera: " + calcularDiferencaHoras(pessoaAtendida.hora, obterHoraAtual());
     lblMensagemRemocao.style.display = "block";
 }
 //--------------------------------------------------------------------------------------------
