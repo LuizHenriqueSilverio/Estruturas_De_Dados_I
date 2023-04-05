@@ -74,9 +74,11 @@ function mostrarMensagemRemocao(pessoaAtendida) {
 //--------------------------------------------------------------------------------------------
  // Função para mostrar a  fila
  function mostrarFila() {
-   if(!minhaFila.isEmpty()) {
-      const textFila = document.getElementById("pessoasFila");
+    const textFila = document.getElementById("pessoasFila");
+    if(!minhaFila.isEmpty()) {
       textFila.textContent = "Pessoas na fila: ";
+   }else {
+       textFila.textContent = "Fila vazia!";
    }
    const filaElemento = document.getElementById("listPessoasFila");
    filaElemento.textContent = minhaFila.toString();

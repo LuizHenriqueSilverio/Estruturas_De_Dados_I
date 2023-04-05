@@ -38,6 +38,7 @@ int enqueue(tfila *f, tdado x) {
 	}
 	f->fim = novo;
 	f->tamanho++;
+	return 1;
 }
 
 //---------------------------
