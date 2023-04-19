@@ -13,7 +13,7 @@ typedef struct {
 int elementoExiste(int n, tfila *f) {
 	int ini = 0;
 	
-	while(ini != f->tamanho) {
+	while(ini != (MAX-1)) {
 		if(f->dado[ini] == n) {
 			return 1;
 		}
