@@ -16,13 +16,13 @@ typedef struct{
 //--------------------------
 
 int ehCrescente(tfila *f) {
-	int valorInicial = f->ini->dado;
+	int valor = f->ini->dado;
 	tno *aux = f->ini->prox;
 	while(aux != NULL) {
-		if(aux->dado < valorInicial) {
+		if(aux->dado < valor) {
 			return 0;
 		}
-		valorInicial = aux->dado;
+		valor = aux->dado;
 		aux = aux->prox;
 	}
 	return 1;

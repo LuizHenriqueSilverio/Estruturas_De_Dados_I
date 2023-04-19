@@ -94,7 +94,7 @@ void printLabirinto(char labirinto[MAX][MAX]){
 				op = 1;
 				return 1;
 			}			
-		Sleep(250); 
+		Sleep(100); 
 		system("cls");
 		printLabirinto(lab);
 		printf("\n\n%d | %d", i, j);

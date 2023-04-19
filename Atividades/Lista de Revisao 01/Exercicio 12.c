@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define MAX 10
 
 typedef struct {
-	int dado;
+	int dado[MAX];
 	int *ini, *fim;
 	int tamanho;
 }tfila;
@@ -11,9 +12,8 @@ typedef struct {
 
 int elementoExiste(int n, tfila *f) {
 	int ini = 0;
-	int fim = f->tamanho - 1;
 	
-	while(ini != fim) {
+	while(ini != f->tamanho) {
 		if(f->dado[ini] == n) {
 			return 1;
 		}

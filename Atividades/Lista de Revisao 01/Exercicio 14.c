@@ -21,5 +21,7 @@ typedef struct{
 int last(tfila f) {
 	if(f.fim != NULL) {
 		return f.fim->dado;
+	}else {
+		printf("A fila esta vazia!!!");
 	}
 }
