@@ -6,6 +6,7 @@ typedef int tdado;
 typedef struct no{
 	tdado dado;
 	struct no *prox;
+	struct no *ant;
 }tno;
 
 typedef struct{
@@ -23,15 +24,18 @@ void inicializa(tdeque *minhaDeque){
 
 int addLast(tdeque *minhaDeque, tdado novoDado){
 	tno *novoNo = malloc(sizeof(tno));
-	if(novoNo==NULL) // memoria ta cheia
+	if(novoNo==NULL){  // memoria ta cheia
 	  return 0;
+	}
 	novoNo->dado = novoDado;
 	novoNo->prox = NULL;
-	 // alteracao DEQUE - fazer anterior receber o fim
-	if(minhaDeque->ini==NULL) // testando se esta vazia
+	novoNo->ant = minhaDeque->fim;
+	if(minhaDeque->ini==NULL) { // testando se esta vazia
 	  minhaDeque->ini = novoNo;
-	else
+	}
+	else{
 	  minhaDeque->fim->prox = novoNo;
+	}
 	minhaDeque->fim = novoNo;    	
 	return 1;
 }
