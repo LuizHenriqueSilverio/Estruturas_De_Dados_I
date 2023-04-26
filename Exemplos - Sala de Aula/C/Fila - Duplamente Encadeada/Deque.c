@@ -82,7 +82,7 @@ void printInvertida(tdeque minhaDeque){ // alterar
 	while(minhaDeque.ini != NULL){
 		printf("<- %x| %d [%x] | %x ->\n ",
 		        minhaDeque.fim->ant, minhaDeque.fim->dado, minhaDeque.fim , minhaDeque.fim->prox); // mostro o dado
-		minhaDeque.fim = minhaDeque.fim->ant; // deslocando para o proxs
+		minhaDeque.fim = minhaDeque.fim->ant; // deslocando para o anterior
 	}// fim while
 	printf("\n");
 }
@@ -93,7 +93,7 @@ void mostraEndereco(tdeque minhaDeque){
 	while(minhaDeque.ini != NULL){
 		printf("<- %x| %d [%x] | %x ->\n ",
 		        minhaDeque.ini->ant, minhaDeque.ini->dado, minhaDeque.ini , minhaDeque.ini->prox); // mostro o dado
-				minhaDeque.ini = minhaDeque.ini->prox; // deslocando para o proxs
+				minhaDeque.ini = minhaDeque.ini->prox; // deslocando para o prox
 	}// fim while
 	printf("\n");
 }
