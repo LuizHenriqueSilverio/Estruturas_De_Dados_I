@@ -158,9 +158,19 @@ public class FormFila extends javax.swing.JFrame {
         btnAtenderIni.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         btnAtenderIni.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javadeque/doctor-atend.png"))); // NOI18N
         btnAtenderIni.setText("Atender");
+        btnAtenderIni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtenderIniActionPerformed(evt);
+            }
+        });
 
         btnAtenderFim.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         btnAtenderFim.setText("Remover do fim");
+        btnAtenderFim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtenderFimActionPerformed(evt);
+            }
+        });
 
         btnMostraInvertida.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         btnMostraInvertida.setText("Mostrar invertida");
@@ -250,6 +260,24 @@ public class FormFila extends javax.swing.JFrame {
     private void btnMostraInvertidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostraInvertidaActionPerformed
         mostraInvertido();
     }//GEN-LAST:event_btnMostraInvertidaActionPerformed
+
+    private void btnAtenderIniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderIniActionPerformed
+        if(!minhaDeque.isEmpty()) {
+            Pessoa p = new Pessoa();
+            p = minhaDeque.removeFirst();
+            txtProx.setText("Prox: " + p);
+            mostra();
+        }
+    }//GEN-LAST:event_btnAtenderIniActionPerformed
+
+    private void btnAtenderFimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderFimActionPerformed
+        if(!minhaDeque.isEmpty()) {
+            Pessoa p = new Pessoa();
+            p = minhaDeque.removeLast();
+            txtProx.setText("Prox: " + p);
+            mostra();
+        }
+    }//GEN-LAST:event_btnAtenderFimActionPerformed
 
 
     public static void main(String args[]) {
