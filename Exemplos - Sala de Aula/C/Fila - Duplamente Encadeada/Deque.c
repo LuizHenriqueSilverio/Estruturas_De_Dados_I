@@ -46,9 +46,12 @@ tdado removeFirst(tdeque *minhaDeque){
 	tdado retorno = minhaDeque->ini->dado; // pegando o dado armazenado no no
 	tno *aux = minhaDeque->ini; // guardando o endereco para limpar a memoria
 	minhaDeque->ini = minhaDeque->ini->prox; // removendo, deslocando o apontamento
-	if(minhaDeque->ini == NULL) // era o ultimo elemento
+	if(minhaDeque->ini == NULL) { // era o ultimo elemento
 	   minhaDeque->fim = NULL;
-	//else  
+	}
+	else{
+		minhaDeque->ini->ant = NULL;
+	}  
 	    // Alteracao da DEQUE  , o anterior do inicio aponta para NULL
 	free(aux); // limpando a memoria
 	return retorno; // retorno o dado removido
@@ -67,7 +70,7 @@ int isEmpty(tdeque minhaDeque){
 
 void printList(tdeque minhaDeque){
 	while(minhaDeque.ini != NULL){
-		printf("%d -",minhaDeque.ini->dado); // mostro o dado
+		printf("%d - ",minhaDeque.ini->dado); // mostro o dado
 		minhaDeque.ini = minhaDeque.ini->prox; // deslocando para o prox
 	}// fim while
 	printf("\n");
@@ -76,8 +79,10 @@ void printList(tdeque minhaDeque){
 //-----------------------------
 
 void printInvertida(tdeque minhaDeque){ // alterar
-	while(minhaDeque.fim != NULL){
-		// percorrer invertida
+	while(minhaDeque.ini != NULL){
+		printf("<- %x| %d [%x] | %x ->\n ",
+		        minhaDeque.fim->ant, minhaDeque.fim->dado, minhaDeque.fim , minhaDeque.fim->prox); // mostro o dado
+		minhaDeque.fim = minhaDeque.fim->ant; // deslocando para o proxs
 	}// fim while
 	printf("\n");
 }
@@ -86,9 +91,9 @@ void printInvertida(tdeque minhaDeque){ // alterar
 
 void mostraEndereco(tdeque minhaDeque){
 	while(minhaDeque.ini != NULL){
-		/*printf("<- %x| %d [%x] | %x ->\n ",
+		printf("<- %x| %d [%x] | %x ->\n ",
 		        minhaDeque.ini->ant, minhaDeque.ini->dado, minhaDeque.ini , minhaDeque.ini->prox); // mostro o dado
-		minhaDeque.ini = minhaDeque.ini->prox; // deslocando para o prox*/
+				minhaDeque.ini = minhaDeque.ini->prox; // deslocando para o proxs
 	}// fim while
 	printf("\n");
 }
@@ -118,22 +123,29 @@ int main(){
 	tdeque minhaDeque;
 	inicializa(&minhaDeque);
 	do{
-		printList(minhaDeque);
+		printf("Ini:%x  Fim:%x\n", minhaDeque.ini, minhaDeque.fim);
+		//printList(minhaDeque);
+		mostraEndereco(minhaDeque);
 		op = menu();
 		switch(op){
-			case 1: printf("Valor para inserir:");
-					scanf("%d",&novoDado);
-					if(addLast(&minhaDeque,novoDado)) // ==1
-					   printf("Valor inserido:)\n");
-					else
-					   printf("Fila cheia:(\n");   
+			case 1: 
+				printf("Valor para inserir:");
+				scanf("%d",&novoDado);
+				if(addLast(&minhaDeque,novoDado)) { // ==1
+				   printf("Valor inserido:)\n");
+				}
+				else{
+				   printf("Fila cheia :(\n");   
+				}
 				break;
-			case 2: if(!isEmpty(minhaDeque)){
-				      novoDado = removeFirst(&minhaDeque);
-				      printf("Removido: %d\n",novoDado);
-					}// fim if
-					else
-					  printf("Fila vazia :(\n");
+			case 2: 
+				if(!isEmpty(minhaDeque)) {
+				    novoDado = removeFirst(&minhaDeque);
+				    printf("Removido: %d\n",novoDado);
+				}// fim if
+				else {
+					printf("Fila vazia :(\n");
+				}
 			   break;
 			case 3: if(!isEmpty(minhaDeque)){
 				      //printf("Inicio: %d\n",firstList(minhaDeque));
@@ -142,9 +154,11 @@ int main(){
 					 else
 					    printf("Fila vazia :(\n"); 
 			break;
-			case 4: if(!isEmpty(minhaDeque))
-			 			printInvertida(minhaDeque);
-			break; 		
+			case 4: 
+				if(!isEmpty(minhaDeque)) {
+			 		printInvertida(minhaDeque);
+			 	}
+				break; 		
 			case 0: printf("Saindo...");  
 			break;	
 		}// fim switch
