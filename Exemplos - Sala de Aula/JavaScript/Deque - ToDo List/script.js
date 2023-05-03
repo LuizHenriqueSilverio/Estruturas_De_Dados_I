@@ -18,6 +18,11 @@
 
     minhaLista.addAtIndex(indice.value, novaTarefa);
     mostrarLista();
+
+    descricao.value = "";
+    prioridade.value = "";
+    indice.value = "";
+    descricao.focus();
  }
   // Função para adicionar um elemento ordenado
   function adicionarOrdenado() {
