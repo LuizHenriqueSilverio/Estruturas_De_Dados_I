@@ -95,7 +95,22 @@ deleteFirst() {
 //------------------------------------------------------------
     isEmpty() {
         return this.head === null; 
-      }
+    }
+//------------------------------------------------------------
+    getFirst() {
+        if(this.isEmpty()) {
+            return null;
+        }
+        return this.head.data;
+    }
+
+//------------------------------------------------------------
+    getFirst() {
+        if(this.isEmpty()) {
+            return null;
+    }
+        return this.tail.data;
+}
 
 //------------------------------------------------------------
     forEach(callback) {
