@@ -45,13 +45,14 @@ int busca(thash v[], int n, tdado x){
 	comp = 0;
 	int map, i = 0;
 	do {
+		map = funcaoHash(x.cpf, n, i);
+		comp++;
 		
 		if(v[map].estado == VAZIO) {
 			return -1;
 		}
 		
-		map = funcaoHash(x.cpf, n, i);
-		if(v[map].estado == OCUPADO && v[map].dado.cpf = x.cpf) {
+		if(v[map].estado == OCUPADO && v[map].dado.cpf == x.cpf) {
 			return map;
 		}
 		else {
