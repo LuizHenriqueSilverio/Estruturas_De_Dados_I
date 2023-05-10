@@ -31,30 +31,43 @@ int insereHash(thash v[], tdado x, int n){
 	do {
 		map = funcaoHash(x.cpf, n, i);
 		if(v[map].estado != OCUPADO){ // se nao esta ocupada
-		     // inserir o dado e retornar a posicao map
+			v[map].dado = x;
+			v[map].estado = OCUPADO;
+			return map;
 		}// fim if
-		// se a posicao estiver ocupado ocorreu conflito
-		// deslocar para prox posicao
+		i++;
 	}while(i<n);
 	// se percorrer todo vetor e não conseguiu inserir
-	// retornar -1
+	return -1;
 }
 //--------------------------
 int busca(thash v[], int n, tdado x){
-	comp=0;
-	int map, i=0;
-	do{
-		// usar a funcao hash para pegar a posicao do dado
-		// testar se nao posicao existe o dado buscado	
-	}while(i<n);
+	comp = 0;
+	int map, i = 0;
+	do {
+		
+		if(v[map].estado == VAZIO) {
+			return -1;
+		}
+		
+		map = funcaoHash(x.cpf, n, i);
+		if(v[map].estado == OCUPADO && v[map].dado.cpf = x.cpf) {
+			return map;
+		}
+		else {
+			i++;
+		}
+		
+	} while(i<n);
 	return -1;
 }
 //--------------------------
 int deleteHash(thash v[], int n, tdado x){
-     	int map;
-     	map = busca(v,n,x);
-     	if(map != -1)
+    int map;
+    map = busca(v,n,x);
+    	if(map != -1) {
      		v[map].estado = REMOVIDO;
+     	}
      	
 		return map;	
 }
