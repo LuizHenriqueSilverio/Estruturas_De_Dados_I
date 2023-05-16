@@ -40,6 +40,7 @@ function limpaCampos() {
     indice.value = "";
     descricao.focus();
  }
+ //--------------------------------------------------------------------------------------------
   // Função para adicionar um elemento ordenado
   function adicionarOrdenado() {
     const descricao = document.getElementById("txtnovaTarefa").value.trim();
