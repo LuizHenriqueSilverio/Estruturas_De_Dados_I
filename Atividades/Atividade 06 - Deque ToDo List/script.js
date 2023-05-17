@@ -44,17 +44,23 @@ function limpaCampos() {
   // Função para adicionar um elemento ordenado
   function adicionarOrdenado() {
     const descricao = document.getElementById("txtnovaTarefa").value.trim();
-    const prioridade = document.getElementById("txtnovaPrioridade").value.trim();
+    const prioridade = parseInt(document.getElementById("txtnovaPrioridade").value.trim());
   
     if(descricao === "" || prioridade === "") {
         alert("Todos os campos devem ser preenchidos!");
         return; 
     }
+
+    if (isNaN(prioridade)) {
+        alert("A prioridade deve ser um número!");
+        return;
+    }
     
     const novaTarefa = new Tarefa(descricao, prioridade, obterDataAtual(), obterHoraAtual());
     let indice = 0;
     let retorno = false;
-    let novaPrioridade = parseInt(novaTarefa.prioridade);
+    let novaPrioridade = novaTarefa.prioridade;
+    console.log("Prioridade: " + novaPrioridade);
 
     if(minhaLista.isEmpty()) {
        retorno = minhaLista.addFirst(novaTarefa);
@@ -67,16 +73,17 @@ function limpaCampos() {
     }
     else{
         let inserido = false;
-        minhaLista.forEach((item, indice) => {
-            if(item.prioridade < novaPrioridade && inserido === false){
+        minhaLista.forEach((item) => {
+            if(item.prioridade > novaPrioridade && inserido === false){
                 retorno = minhaLista.addAtIndex(indice, novaTarefa);
                 inserido = true;
                 return;
             }
+            indice++;
         });
 
         if(!inserido) {
-            retorno = minhaLista.addLast;
+            retorno = minhaLista.addLast();
         }
     }
 
@@ -84,6 +91,7 @@ function limpaCampos() {
 
     mostrarLista();
     limpaCampos();
+    indice = 0;
     return;
     //descricao.focus();
  }

@@ -20,10 +20,10 @@ void printHash(tlista vet[], int n){
 	int i;
 	for(i=0;i<n;i++){
 	   if(vet[i].head!=NULL){ // nao esta vazia	
-		printf("[%d]->",i);
-		printList(vet[i]);
-		printf("\n");
-	 }// fim if
+			printf("[%d]->",i);
+			printList(vet[i]);
+			printf("\n");
+		}// fim if
 	}// fim for
 }
 //-------------------------
