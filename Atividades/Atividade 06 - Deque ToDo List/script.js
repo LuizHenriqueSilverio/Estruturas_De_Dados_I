@@ -46,7 +46,7 @@ function limpaCampos() {
     const descricao = document.getElementById("txtnovaTarefa").value.trim();
     const prioridade = document.getElementById("txtnovaPrioridade").value.trim();
   
-    if(descricao.value === "" || prioridade.value === "") {
+    if(descricao === "" || prioridade === "") {
         alert("Todos os campos devem ser preenchidos!");
         return; 
     }
@@ -74,9 +74,9 @@ function limpaCampos() {
             indice++;
         });
     }
-   
     mostrarLista();
     limpaCampos();
+    return;
     //descricao.focus();
  }
 //--------------------------------------------------------------------------------------------
