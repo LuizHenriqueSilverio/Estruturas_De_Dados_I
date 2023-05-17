@@ -52,8 +52,7 @@ function limpaCampos() {
     }
     
     const novaTarefa = new Tarefa(descricao, prioridade, obterDataAtual(), obterHoraAtual());
-    let indice = 1;
-    let indiceAtual = 0;
+    let indice = 0;
     let retorno = false;
     let novaPrioridade = parseInt(novaTarefa.prioridade);
 
@@ -63,7 +62,7 @@ function limpaCampos() {
     else if(novaPrioridade >= minhaLista.getLast().prioridade) {
        retorno = minhaLista.addLast(novaTarefa);
     }
-    else if(novaPrioridade < minhaLista.getFirst().prioridade) {
+    else if(novaPrioridade < minhaLista.getFirst().prioridade || novaPrioridade == 0) {
        retorno = minhaLista.addFirst(novaTarefa);
     }
     else{
@@ -74,11 +73,10 @@ function limpaCampos() {
                 inserido = true;
                 return;
             }
-            indiceAtual = indice;
         });
 
         if(!inserido) {
-            retorno = minhaLista.addAtIndex(indiceAtual + 1, novaTarefa);
+            retorno = minhaLista.addLast;
         }
     }
 

@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "lista.h"
+
 //-----------------------
 int funcaoHash(int k){
 	// key ou chave vai ser o primeiro caractere do nome
