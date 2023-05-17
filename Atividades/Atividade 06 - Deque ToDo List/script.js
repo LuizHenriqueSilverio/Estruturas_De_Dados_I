@@ -52,38 +52,37 @@ function limpaCampos() {
     }
     
     const novaTarefa = new Tarefa(descricao, prioridade, obterDataAtual(), obterHoraAtual());
-    let indice = 0;
+    let indice = 1;
     let indiceAtual = 0;
-    let inserido = false;
     let retorno = false;
     let novaPrioridade = parseInt(novaTarefa.prioridade);
 
     if(minhaLista.isEmpty()) {
        retorno = minhaLista.addFirst(novaTarefa);
-       inserido = true;
     }
     else if(novaPrioridade >= minhaLista.getLast().prioridade) {
        retorno = minhaLista.addLast(novaTarefa);
-       inserido = true;
     }
     else if(novaPrioridade < minhaLista.getFirst().prioridade) {
        retorno = minhaLista.addFirst(novaTarefa);
-       inserido = true;
     }
     else{
+        let inserido = false;
         minhaLista.forEach((item, indice) => {
             if(item.prioridade < novaPrioridade && inserido === false){
                 retorno = minhaLista.addAtIndex(indice, novaTarefa);
                 inserido = true;
                 return;
             }
-            indiceAtual == indice;
+            indiceAtual = indice;
         });
+
+        if(!inserido) {
+            retorno = minhaLista.addAtIndex(indiceAtual + 1, novaTarefa);
+        }
     }
 
-    if(!inserido) {
-        minhaLista.addAtIndex(indiceAtual, novaTarefa);
-    }
+
 
     mostrarLista();
     limpaCampos();
