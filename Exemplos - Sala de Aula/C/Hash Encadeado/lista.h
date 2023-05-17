@@ -7,10 +7,12 @@ typedef struct{
   float media;
   int idade;	
 } tdado;
+
 typedef struct no{
 	tdado dado;
 	struct no *prox,*ant;
 }tno;
+
 typedef struct lista{
 	tno *head,*tail;
 	int qtd;
@@ -146,6 +148,9 @@ void printList(tlista l){
 }// fim
 //-----------------------------------
 float buscaList(tlista lista,tdado x){
+	while(lista.head != NULL) {
+		
+	}
 	  //percorre a lista enquanto lista.head!= null
 	     //lista.head->dado.nome == x.nome
 	        //achou - retorna a media

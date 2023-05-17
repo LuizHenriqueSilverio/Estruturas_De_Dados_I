@@ -25,12 +25,14 @@ void printHash(tlista vet[], int n){
 			printf("\n");
 		}// fim if
 	}// fim for
+	
 }
 //-------------------------
 float buscaHash(tlista tabHash[],tdado x){
-	// int map = funcaoHash(x.nome[0]);
+	int map = funcaoHash(x.nome[0]);
 	// map possui a posicao da lista de nomes 
-	// agora implemente e use a funcao buscaList para percorrer a lista dos nom
+	
+	return 0.0;
 }
 //--------------------------
 
@@ -57,15 +59,23 @@ int main()
    	printHash(tabHash,26);
    	op = menu();
    	switch(op){
-   		case 1: printf("Dados: Nome:");
-   				fflush(stdin); gets(x.nome);
-   				x.nome[0] = toupper(x.nome[0]);
-   				printf("Idade:");
-   				scanf("%d",&x.idade);
-   				printf("Media:");
-   				scanf("%f",&x.media);
-   				r=insereHash(tabHash, x);
-   				printf("Inserido na posicao :%d\n",r);
+   		case 1: 
+		   	printf("Dados: Nome:");
+   			fflush(stdin); 
+			gets(x.nome);
+   			x.nome[0] = toupper(x.nome[0]);
+   			printf("Idade:");
+   			scanf("%d",&x.idade);
+   			printf("Media:");
+   			scanf("%f",&x.media);
+   			r=insereHash(tabHash, x);
+   			printf("Inserido na posicao :%d\n",r);
+   			break;
+   		case 2:
+   			printf("Insira um nome: ");
+   			fflush(stdin);
+   			gets(x.nome);
+   			buscaHash(tabHash, x);
    			break;
    		case 0:
 		break;   	
