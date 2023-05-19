@@ -73,8 +73,8 @@ class Node {
 
         newNode.prev = currentNode;
         newNode.next = currentNode.next;
+        currentNode.next.prev = newNode;
         currentNode.next = newNode;
-        newNode.next.prev = newNode;
 
         this.length++;
         return true;

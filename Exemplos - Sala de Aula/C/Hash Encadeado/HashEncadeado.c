@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "lista.h"
+
 //-----------------------
 int funcaoHash(int k){
 	// key ou chave vai ser o primeiro caractere do nome
@@ -19,11 +20,12 @@ void printHash(tlista vet[], int n){
 	int i;
 	for(i=0;i<n;i++){
 	   if(vet[i].head!=NULL){ // nao esta vazia	
-		printf("[%d]->",i);
-		printList(vet[i]);
-		printf("\n");
-	 }// fim if
+			printf("[%d]->",i);
+			printList(vet[i]);
+			printf("\n");
+		}// fim if
 	}// fim for
+	
 }
 //-------------------------
 float buscaHash(tlista tabHash[],tdado x){

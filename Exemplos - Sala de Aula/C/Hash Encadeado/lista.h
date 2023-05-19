@@ -7,10 +7,12 @@ typedef struct{
   float media;
   int idade;	
 } tdado;
+
 typedef struct no{
 	tdado dado;
 	struct no *prox,*ant;
 }tno;
+
 typedef struct lista{
 	tno *head,*tail;
 	int qtd;
