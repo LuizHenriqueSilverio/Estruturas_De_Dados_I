@@ -146,11 +146,14 @@ void printList(tlista l){
 }// fim
 //-----------------------------------
 float buscaList(tlista lista,tdado x){
-	  //percorre a lista enquanto lista.head!= null
-	     //lista.head->dado.nome == x.nome
-	        //achou - retorna a media
-	     //vai para prox head=head->prox   
-	  //fim enquanto
-	    //se sair do while sem mostrar nada
-		//      
+	//percorre a lista enquanto lista.head!= null
+	float media = -1.0;
+	while(lista.head != NULL){
+		if(strcmp(lista.head -> dado.nome, x.nome) == 0) {
+			media = lista.head -> dado.media;
+			return media;
+		}
+		lista.head = lista.head -> prox;
+	}
+	return media;
 }
