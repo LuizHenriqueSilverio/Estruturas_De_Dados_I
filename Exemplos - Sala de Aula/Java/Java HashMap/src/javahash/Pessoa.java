@@ -1,4 +1,3 @@
-
 package javahash;
 
 public class Pessoa {
@@ -21,7 +20,27 @@ public class Pessoa {
         this.cpf = cpf;
     }
     
+    @Override
+    public boolean equals(Object outroObjeto) {
+        
+        if(this == outroObjeto) {
+            return true;
+        }
+        
+        if(outroObjeto == null || this.getClass() != outroObjeto.getClass()) {
+            return false;
+        }
+        
+        Pessoa outraPessoa = (Pessoa) outroObjeto;
+        return this.cpf.equals(outraPessoa.cpf);
+    }
     
-    
-    
+    @Override
+    public int hashCode() {
+        if(this.cpf == null) {
+            return 0;
+        }else {
+            return this.cpf.hashCode();
+        }
+    }
 }
