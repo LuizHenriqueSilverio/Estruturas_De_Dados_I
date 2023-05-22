@@ -7,7 +7,7 @@
 //-----------------------
 int funcaoHash(int k){
 	// key ou chave vai ser o primeiro caractere do nome
-	return k%65; // 65? é o código ASCII do A
+	return k%65; // 65? ï¿½ o cï¿½digo ASCII do A
 }
 //-----------------------
 int insereHash(tlista tabHash[],tdado x){
@@ -30,9 +30,7 @@ void printHash(tlista vet[], int n){
 //-------------------------
 float buscaHash(tlista tabHash[],tdado x){
 	int map = funcaoHash(x.nome[0]);
-	// map possui a posicao da lista de nomes 
-	
-	return 0.0;
+	return buscaList(tabHash[map], x);
 }
 //--------------------------
 
@@ -57,12 +55,12 @@ int main()
    inicializa(tabHash,26);
    do{
    	printHash(tabHash,26);
+	printf("\n");
    	op = menu();
    	switch(op){
    		case 1: 
-		   	printf("Dados: Nome:");
-   			fflush(stdin); 
-			gets(x.nome);
+			printf("Dados: Nome:");
+   			fflush(stdin); gets(x.nome);
    			x.nome[0] = toupper(x.nome[0]);
    			printf("Idade:");
    			scanf("%d",&x.idade);
@@ -71,12 +69,18 @@ int main()
    			r=insereHash(tabHash, x);
    			printf("Inserido na posicao :%d\n",r);
    			break;
-   		case 2:
-   			printf("Insira um nome: ");
-   			fflush(stdin);
-   			gets(x.nome);
-   			buscaHash(tabHash, x);
-   			break;
+		case 2:
+			printf("Insira o nome que deseja buscar: ");
+			fflush(stdin);
+			gets(x.nome);
+			x.nome[0] = toupper(x.nome[0]);
+			float media = buscaHash(tabHash, x);
+			if(media != -1.0) {
+				printf("Media: %.2f\n", media);
+			}else {
+				printf("Nome nao foi encontrado!!!");
+			}
+			break;
    		case 0:
 		break;   	
 	}// fim switch
