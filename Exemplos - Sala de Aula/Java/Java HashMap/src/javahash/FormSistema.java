@@ -203,6 +203,7 @@ public class FormSistema extends javax.swing.JFrame {
         p.setCpf(txtCpf.getText().trim());
         
         meuHash.put(p.getCpf(), p);
+        mostra();
     }//GEN-LAST:event_btnAddhmActionPerformed
 
     private void btnCarregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregaActionPerformed
