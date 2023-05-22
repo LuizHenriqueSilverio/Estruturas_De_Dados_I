@@ -197,7 +197,12 @@ public class FormSistema extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarhmActionPerformed
 
     private void btnAddhmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddhmActionPerformed
+        Pessoa p = new Pessoa();
         
+        p.setNome(txtNome.getText().trim());
+        p.setCpf(txtCpf.getText().trim());
+        
+        meuHash.put(p.getCpf(), p);
     }//GEN-LAST:event_btnAddhmActionPerformed
 
     private void btnCarregaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarregaActionPerformed
