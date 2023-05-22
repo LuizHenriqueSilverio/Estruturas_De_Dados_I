@@ -43,4 +43,10 @@ public class Pessoa {
             return this.cpf.hashCode();
         }
     }
+    
+    @Override 
+    
+    public String toString() {
+        return getNome() + ":" + getCpf();
+    }
 }
