@@ -172,6 +172,7 @@ int main(){
 	tdado novoDado;
 	tdeque minhaDeque;
 	inicializa(&minhaDeque);
+	int qtd;
 	do{
 		printf("Ini:%x  Fim:%x\n", minhaDeque.ini, minhaDeque.fim);
 		//printList(minhaDeque);
@@ -231,7 +232,7 @@ int main(){
 				}
 				break;
 			case 7:
-				int qtd = length(minhaDeque);
+				qtd = length(minhaDeque);
 				printf("O tamanho atual da lista eh: %d", qtd);
 				break;
 			case 0: 
