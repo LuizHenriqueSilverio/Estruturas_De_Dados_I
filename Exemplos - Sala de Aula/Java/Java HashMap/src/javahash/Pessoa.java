@@ -32,8 +32,8 @@ public class Pessoa {
         }
         
         Pessoa outraPessoa = (Pessoa) outroObjeto;
-        return this.cpf.equals(outraPessoa.cpf);
-    }
+        return this.getCpf() != null ? this.getCpf().equals(outraPessoa.getCpf()) : outraPessoa.getCpf() ==  null;
+   }
     
     @Override
     public int hashCode() {
@@ -48,5 +48,5 @@ public class Pessoa {
     
     public String toString() {
         return getNome() + ":" + getCpf();
-    }
+    }   
 }
