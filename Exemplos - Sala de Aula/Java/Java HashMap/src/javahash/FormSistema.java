@@ -214,7 +214,24 @@ public class FormSistema extends javax.swing.JFrame {
                 p.setCpf(pessoa[1]);
                 meuHash.put(p.getCpf(), p);
                 minhaLista.add(p);
-                System.out.println(p);
+                // System.out.println(p);
+            }// fim percurso no arquivo
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    
+        void carregaDadosBusca() {
+        String csvFile = "dadosbusca.csv";
+        String line = "";
+        // String[] dados = null;  
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            while ((line = br.readLine()) != null) {
+                /*for(String s: arrayBusca){
+                    p = meuHash(s)
+                }*/
             }// fim percurso no arquivo
         } catch (IOException e) {
             e.printStackTrace();
