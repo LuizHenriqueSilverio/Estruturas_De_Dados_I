@@ -190,7 +190,9 @@ public class FormSistema extends javax.swing.JFrame {
     public void mostra() {
         listHashTable.setText("");
         if(!meuHash.isEmpty()){
-            
+            for(Map.Entry<String, Pessoa> dado:meuHash.entrySet()){
+                listHashTable.append(dado.getValue() + "\n");
+            }
         }
     }
      
