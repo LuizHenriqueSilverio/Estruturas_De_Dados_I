@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 
 public class FormSistema extends javax.swing.JFrame {
     HashMap<String, Pessoa> meuHash = new HashMap<>();
+    LinkedList<Pessoa> minhaLista = new LinkedList<>();
+    ArrayList<String> arrayBusca = new ArrayList<>();
     
     public FormSistema() {
         initComponents();
@@ -185,9 +187,11 @@ public class FormSistema extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
    
-    void mostra() {
-        //implementar
-        //mostrar o meuHash no list
+    public void mostra() {
+        listHashTable.setText("");
+        if(!meuHash.isEmpty()){
+            
+        }
     }
      
     
