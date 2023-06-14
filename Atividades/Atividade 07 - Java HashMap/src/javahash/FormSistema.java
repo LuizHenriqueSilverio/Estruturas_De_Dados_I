@@ -243,7 +243,7 @@ public class FormSistema extends javax.swing.JFrame {
     }
     
     void carregaDados() {
-        String csvFile = "D:\\Faculdade\\Estruturas_de_Dados_I\\Atividades\\Atividade 07 - Java HashMap\\src\\javahash\\dados.csv";
+        String csvFile = "dados.csv";
         String line = "";
         String[] pessoa = null;
         
@@ -264,7 +264,7 @@ public class FormSistema extends javax.swing.JFrame {
     }
     
     void carregaDadosBusca() {
-        String csvFile = "D:\\Faculdade\\Estruturas_de_Dados_I\\Atividades\\Atividade 07 - Java HashMap\\src\\javahash\\dadosbusca.csv";
+        String csvFile = "dadosbusca.csv";
         String line = "";
         
         try(BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
@@ -336,9 +336,12 @@ public class FormSistema extends javax.swing.JFrame {
         
         int tempoFinal = (int) System.currentTimeMillis();
         
-        System.out.println("Busca Por HashMap:");
+        JOptionPane.showMessageDialog(null, "Busca por Hashmap:\n" + 
+                                      "Total de CPFs encontrados: " + qtd + "\n" +
+                                      "Tempo de busca: " + (tempoFinal - tempoInicial) / 1000.00);
+        /*System.out.println("Busca Por HashMap:");
         System.out.println("Total de CPFs encontrados: " + qtd);
-        System.out.printf("Tempo de busca: %.2f segundos", (tempoFinal - tempoInicial) / 1000.00);
+        System.out.printf("Tempo de busca: %.2f segundos", (tempoFinal - tempoInicial) / 1000.00);*/
         
         tempoInicial = (int) System.currentTimeMillis();
         qtd = 0;
@@ -351,10 +354,15 @@ public class FormSistema extends javax.swing.JFrame {
         }
         
         tempoFinal = (int) System.currentTimeMillis();
-        System.out.println("");
+        
+        JOptionPane.showMessageDialog(null, "Busca por Hashmap:\n" + 
+                                      "Total de CPFs encontrados: " + qtd + "\n" +
+                                      "Tempo de busca: " + (tempoFinal - tempoInicial) / 1000.00);
+        
+        /*System.out.println("");
         System.out.println("Busca por LinkedList:");
         System.out.println("Total de CPFs encontrados: " + qtd);
-        System.out.printf("Tempo de busca: %.2f segundos", (tempoFinal - tempoInicial) / 1000.00);
+        System.out.printf("Tempo de busca: %.2f segundos", (tempoFinal - tempoInicial) / 1000.00);*/
     }//GEN-LAST:event_buscaDadosActionPerformed
 
     private void salvaDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvaDadosActionPerformed
