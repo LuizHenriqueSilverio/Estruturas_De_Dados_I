@@ -258,7 +258,7 @@ public class FormSistema extends javax.swing.JFrame {
                 // System.out.println(p);
             }// fim percurso no arquivo
         } catch (IOException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Arquivo de dados não encontrado!");
         }
 
     }
@@ -275,7 +275,7 @@ public class FormSistema extends javax.swing.JFrame {
                 System.out.println(s);
             }
         }catch(IOException e) {
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Arquivo de busca não encontrado!");
         }
     }
      
