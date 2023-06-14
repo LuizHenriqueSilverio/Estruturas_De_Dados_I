@@ -373,11 +373,11 @@ public class FormSistema extends javax.swing.JFrame {
             for(String s : arrayBusca) {
                 if(meuHash.containsKey(s)){
                     bw.write(s);
+                    bw.newLine();
                 }
             }
-            bw.newLine();
         }catch(IOException ex) {
-            JOptionPane.showMessageDialog(null, "Não foi possivel salvar o arquivo!");
+            JOptionPane.showMessageDialog(null, "Não foi possivel salvar o arquivo!" + ex.getMessage());
         }
     }//GEN-LAST:event_salvaDadosActionPerformed
 
