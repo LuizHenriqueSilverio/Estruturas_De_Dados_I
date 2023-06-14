@@ -355,7 +355,7 @@ public class FormSistema extends javax.swing.JFrame {
         
         tempoFinal = (int) System.currentTimeMillis();
         
-        JOptionPane.showMessageDialog(null, "Busca por Hashmap:\n" + 
+        JOptionPane.showMessageDialog(null, "Busca por LinkedList:\n" + 
                                       "Total de CPFs encontrados: " + qtd + "\n" +
                                       "Tempo de busca: " + (tempoFinal - tempoInicial) / 1000.00);
         
